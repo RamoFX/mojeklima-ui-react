@@ -1,0 +1,11 @@
+mutation UpdateLocation($id: Int!, $name: String, $description: String, $latitude: Float, $longitude: Float) {
+  updateLocation(id: $id, name: $name, description: $description, latitude: $latitude, longitude: $longitude) {
+    id
+    name
+    description
+    latitude
+    longitude
+    createdAt
+    updatedAt
+  }
+}

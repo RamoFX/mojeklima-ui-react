@@ -1,0 +1,13 @@
+mutation ToggleAlert($id: Int!, $isEnabled: Boolean!) {
+    toggleAlert(id: $id, isEnabled: $isEnabled) {
+        id
+        isEnabled
+        message
+        updateFrequency
+        criteria
+        comparator
+        value
+        createdAt
+        updatedAt
+    }
+}

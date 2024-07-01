@@ -1,0 +1,23 @@
+query Location($id: Int!) {
+    location(id: $id) {
+        id
+        name
+        description
+        latitude
+        longitude
+        createdAt
+        updatedAt
+
+        alerts {
+            id
+            isEnabled
+            message
+            updateFrequency
+            criteria
+            comparator
+            value
+            createdAt
+            updatedAt
+        }
+    }
+}

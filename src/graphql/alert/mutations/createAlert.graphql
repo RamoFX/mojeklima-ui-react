@@ -1,0 +1,13 @@
+mutation CreateAlert($locationId: Int!, $comparator: String!, $criteria: String!, $value: Float!, $updateFrequency: Int!, $message: String!) {
+    createAlert(locationId: $locationId, isEnabled: true, comparator: $comparator, criteria: $criteria, value: $value, updateFrequency: $updateFrequency, message: $message) {
+        id
+        isEnabled
+        message
+        updateFrequency
+        criteria
+        comparator
+        value
+        createdAt
+        updatedAt
+    }
+}

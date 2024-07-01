@@ -1,0 +1,10 @@
+mutation UpdateName($name: String!) {
+  updateName(name: $name) {
+    role,
+    name,
+    avatarUrl,
+    email,
+    createdAt,
+    updatedAt
+  }
+}

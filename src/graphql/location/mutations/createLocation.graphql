@@ -1,0 +1,11 @@
+mutation CreateLocation($name: String!, $description: String!, $latitude: Float!, $longitude: Float!) {
+  createLocation(name: $name, description: $description, latitude: $latitude, longitude: $longitude) {
+    id
+    name
+    description
+    latitude
+    longitude
+    createdAt
+    updatedAt
+  }
+}

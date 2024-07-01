@@ -1,0 +1,13 @@
+query AllAlerts {
+    allAlerts {
+        id
+        isEnabled
+        message
+        criteria
+        comparator
+        value
+        updateFrequency
+        createdAt
+        updatedAt
+    }
+}

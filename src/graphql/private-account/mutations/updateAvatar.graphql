@@ -1,0 +1,10 @@
+mutation UpdateAvatar {
+  updateAvatar {
+    role,
+    name,
+    avatarUrl,
+    email,
+    createdAt,
+    updatedAt
+  }
+}

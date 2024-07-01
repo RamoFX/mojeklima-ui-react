@@ -1,0 +1,65 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@root/*": [
+        "./*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@models/*": [
+        "./models/*"
+      ],
+      "@router/*": [
+        "./router/*"
+      ],
+      "@graphql/*": [
+        "./graphql/*"
+      ],
+      "@utilities/*": [
+        "./utilities/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@contexts/*": [
+        "./contexts/*"
+      ],
+      "@errors/*": [
+        "./errors/*"
+      ],
+      "@styles/*": [
+        "./styles/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}

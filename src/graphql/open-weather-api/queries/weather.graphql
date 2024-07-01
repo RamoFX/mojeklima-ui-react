@@ -1,0 +1,8 @@
+query Weather($locationId: Int!) {
+    weather(locationId: $locationId) {
+        temperature,
+        humidity,
+        pressure,
+        windSpeed
+    }
+}

@@ -1,0 +1,13 @@
+query Alerts($locationId: Int!) {
+    locationAlerts(locationId: $locationId) {
+        id
+        isEnabled
+        message
+        criteria
+        comparator
+        value
+        updateFrequency
+        createdAt
+        updatedAt
+    }
+}

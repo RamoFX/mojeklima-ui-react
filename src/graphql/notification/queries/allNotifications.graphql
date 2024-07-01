@@ -1,0 +1,14 @@
+query AllNotifications {
+    allNotifications {
+        id
+        seen
+        createdAt
+        alert {
+            message
+            criteria
+            location {
+                name
+            }
+        }
+    }
+}

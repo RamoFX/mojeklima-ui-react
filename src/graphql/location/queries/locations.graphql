@@ -1,0 +1,11 @@
+query Locations {
+    locations {
+        id
+        name
+        description
+        latitude
+        longitude
+        createdAt
+        updatedAt
+    }
+}

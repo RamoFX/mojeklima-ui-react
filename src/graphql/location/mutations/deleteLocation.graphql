@@ -1,0 +1,11 @@
+mutation DeleteLocation($id: Int!) {
+  deleteLocation(id: $id) {
+    id
+    name
+    description
+    latitude
+    longitude
+    createdAt
+    updatedAt
+  }
+}

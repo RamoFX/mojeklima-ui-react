@@ -1,0 +1,13 @@
+mutation DeleteAlert($id: Int!) {
+    deleteAlert(id: $id) {
+        id
+        isEnabled
+        message
+        updateFrequency
+        criteria
+        comparator
+        value
+        createdAt
+        updatedAt
+    }
+} 

@@ -1,0 +1,7 @@
+mutation Notify($accountId: Int!, $alertId: Int!) {
+    notify(accountId: $accountId, alertId: $alertId) {
+        id
+        seen
+        createdAt
+    }
+}

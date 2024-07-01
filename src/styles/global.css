@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* CUSTOM ADJUSTMENTS */
+/* common */
+html, body, #root, #root > * {
+  height: 100%;
+}
+
+#root > * {
+  display: flex;
+}
+
+
+
+/* CHANGES */
+
+/* input */
+input {
+  @apply bg-transparent focus:bg-transparent !important;
+}
+
+input::placeholder, input {
+  font-weight: 500;
+}
+
+/* input autofill */
+input:-webkit-autofill {
+  background-image: none;
+}
+
+
+
+/* IMPLEMENTATIONS */
+
+/* fades */
+.fade {
+  @apply pointer-events-none;
+  @apply z-0 absolute top-0 bottom-0;
+  @apply w-4;
+  @apply from-base-200 transition-opacity;
+}
+
+.fade-hidden {
+  @apply opacity-0;
+}
+
+.fade-left {
+  @apply fade left-0 bg-gradient-to-r;
+}
+
+.fade-right {
+  @apply fade right-0 bg-gradient-to-l;
+}
+
+.fade-left-hidden {
+  @apply fade-left fade-hidden;
+}
+
+.fade-right-hidden {
+  @apply fade-right fade-hidden;
+}
+
+
+
+/* SCREENS */
+
+.screen-shown {
+  @apply fixed top-0 left-0 w-screen h-screen overflow-hidden z-40 p-8;
+  @apply bg-base-100;
+  @apply flex justify-center items-center flex-col gap-4;
+}
+
+.screen-hidden {
+  @apply hidden;
+}

@@ -1,0 +1,9 @@
+query Suggestions($query: String!) {
+    suggestions(query: $query) {
+        latitude,
+        longitude,
+        formatted,
+        countryCode,
+        region
+    }
+}

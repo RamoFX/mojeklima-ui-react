@@ -1,0 +1,94 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "/~dvorro2/dmp/frontend/",
+  "dependencies": {
+    "@apollo/client": "^3.7.8",
+    "@fvilers/disable-react-devtools": "^1.3.0",
+    "@types/node": "^16.18.12",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "graphql": "^16.6.0",
+    "phosphor-react": "^1.4.1",
+    "react": "^18.2.0",
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.2.1",
+    "react-daisyui": "^3.0.2",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1",
+    "react-use": "^17.4.0",
+    "validator": "^13.9.0",
+    "workbox-background-sync": "^6.5.4",
+    "workbox-broadcast-update": "^6.5.4",
+    "workbox-cacheable-response": "^6.5.4",
+    "workbox-core": "^6.5.4",
+    "workbox-expiration": "^6.5.4",
+    "workbox-google-analytics": "^6.5.4",
+    "workbox-navigation-preload": "^6.5.4",
+    "workbox-precaching": "^6.5.4",
+    "workbox-range-requests": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4",
+    "workbox-streams": "^6.5.4"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^3.2.1",
+    "@graphql-codegen/client-preset": "^2.1.0",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/validator": "^13.7.12",
+    "autoprefixer": "^10.4.13",
+    "daisyui": "^2.50.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "codegen:watch": "./node_modules/@graphql-codegen/cli/cjs/bin.js --watch",
+    "frontend:runner": "./node_modules/react-app-rewired/bin/index.js",
+    "frontend:start": "HTTPS=true SSL_CRT_FILE=./development/server.crt SSL_KEY_FILE=./development/server.key npm run frontend:runner start --https",
+    "frontend:build": "npm run frontend:runner build",
+    "frontend:deploy__rename_old": "mv /run/user/1000/gvfs/sftp:host=titan.spsostrov.cz/home/w/dvorro2/dmp/frontend /run/user/1000/gvfs/sftp:host=titan.spsostrov.cz/home/w/dvorro2/dmp/frontend.$$",
+    "frontend:deploy__copy_new": "cp -r ./build /run/user/1000/gvfs/sftp:host=titan.spsostrov.cz/home/w/dvorro2/dmp/frontend",
+    "frontend:deploy": "npm run frontend:build && npm run frontend:deploy__rename_old && npm run frontend:deploy__copy_new"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "overrides": [
+      {
+        "rules": {
+          "react-hooks/exhaustive-deps": "off"
+        },
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ]
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+
+
+
+
+
+

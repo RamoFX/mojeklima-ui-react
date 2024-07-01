@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# HTTPS-only
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# SPA-related
+RewriteBase /~dvorro2/dmp/frontend/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) ./ [QSA,L]

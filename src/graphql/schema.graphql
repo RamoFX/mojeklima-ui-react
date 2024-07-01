@@ -1,0 +1,229 @@
+type Query {
+    locations: [Location!]!
+    locationsCount: Int!
+    location(id: Int!): Location!
+    me: Account!
+    account(id: Int!): Account!
+    allAlerts: [Alert!]!
+    allAlertsCount: Int!
+    locationAlerts(locationId: Int!): [Alert!]!
+    locationAlertsCount(locationId: Int!): Int!
+    alert(id: Int!): Alert!
+    allNotifications: [Notification!]!
+    hasUnseen: Boolean!
+    weather(locationId: Int!): Weather!
+    suggestions(query: String!): [Suggestion!]!
+}
+
+type Location {
+    id: Int
+    name: String!
+    description: String!
+    latitude: Float!
+    longitude: Float!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    account: Account!
+    alerts: [Alert!]!
+}
+
+"""
+The `DateTime` scalar type represents time data, represented as an ISO-8601 encoded UTC date string.
+"""
+scalar DateTime
+
+type Account {
+    id: Int
+    role: String!
+    name: String!
+    avatarUrl: String
+    email: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    locations: [Location!]!
+    pushSubscriptions: [PushSubscription!]!
+}
+
+type PushSubscription {
+    id: Int
+    endpoint: String!
+    p256dh: String!
+    auth: String!
+    userAgent: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    account: Account!
+}
+
+type Alert {
+    id: Int
+    isEnabled: Boolean!
+    criteria: String!
+    comparator: String!
+    value: Float!
+    updateFrequency: Int!
+    message: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    location: Location!
+    notifications: [Notification!]!
+}
+
+type Notification {
+    id: Int
+    seen: Boolean!
+    createdAt: DateTime!
+    alert: Alert!
+}
+
+type Weather {
+    temperature: Float!
+    humidity: Int!
+    pressure: Int!
+    windSpeed: Float!
+}
+
+type Suggestion {
+    latitude: Float!
+    longitude: Float!
+    formatted: String!
+    countryCode: String
+    region: String
+}
+
+type Mutation {
+    createLocation(
+        name: String!
+        description: String!
+        latitude: Float!
+        longitude: Float!
+    ): Location!
+    updateLocation(
+        id: Int!
+        name: String = null
+        description: String = null
+        latitude: Float = null
+        longitude: Float = null
+    ): Location!
+    deleteLocation(id: Int!): Location!
+    login(email: String!, password: String!, remember: Boolean!): String!
+    register(account: CreateAccountInput!): String!
+    resetPassword(email: String!): String!
+    renewToken(remember: Boolean!): String!
+    changeRole(id: Int!, role: AccountRoleEnum!): Account!
+    updateName(name: String!): Account!
+    updateAvatar: Account!
+    updateEmail(email: String!): Account!
+    updatePassword(password: String!): Account!
+    deleteAccount: String!
+    toggleAlert(id: Int!, isEnabled: Boolean!): Alert!
+    createAlert(
+        locationId: Int!
+        isEnabled: Boolean!
+        criteria: String!
+        comparator: String!
+        value: Float!
+        updateFrequency: Int!
+        message: String!
+    ): Alert!
+    updateAlert(
+        id: Int!
+        isEnabled: Boolean = null
+        criteria: String = null
+        comparator: String = null
+        value: Float = null
+        updateFrequency: Int = null
+        message: String = null
+    ): Alert!
+    deleteAlert(id: Int!): Alert!
+    subscribeForPushNotifications(
+        userAgent: String!
+        endpoint: String!
+        p256dh: String!
+        auth: String!
+    ): PushSubscription!
+    seenAll: String!
+    notify(accountId: Int!, alertId: Int!): Notification!
+}
+
+input CreateAccountInput {
+    """
+
+    """
+    name: String!
+
+    """
+
+    """
+    email: String!
+}
+
+enum AccountRoleEnum {
+    SYSTEM
+    ADMIN
+    USER
+}
+
+input UpdateAccountInput {
+    """
+
+    """
+    name: String = null
+
+    """
+
+    """
+    email: String = null
+
+    """
+
+    """
+    password: String = null
+}
+
+input CreateAlertInput {
+    """
+
+    """
+    isEnabled: Boolean!
+
+    """
+
+    """
+    criteria: CriteriaEnum!
+
+    """
+
+    """
+    comparator: ComparatorEnum!
+
+    """
+
+    """
+    value: Float!
+
+    """
+
+    """
+    updateFrequency: Int!
+
+    """
+
+    """
+    message: String!
+}
+
+enum CriteriaEnum {
+    TEMPERATURE
+    HUMIDITY
+    WIND_SPEED
+    PRESSURE
+}
+
+enum ComparatorEnum {
+    LESS_THAN
+    LESS_THAN_OR_EQUAL_TO
+    EQUAL_TO
+    GREATER_THAN_OR_EQUAL_TO
+    GREATER_THAN
+}

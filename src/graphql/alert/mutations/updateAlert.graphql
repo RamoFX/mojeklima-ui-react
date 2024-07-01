@@ -1,0 +1,15 @@
+mutation UpdateAlert($id: Int!, $isEnabled: Boolean, $updateFrequency: Int, $message: String, $value: Float, $comparator: String,
+    $criteria: String) {
+    updateAlert(id: $id, isEnabled: $isEnabled, updateFrequency: $updateFrequency, message: $message, value: $value, comparator:
+    $comparator, criteria: $criteria) {
+        id
+        isEnabled
+        message
+        updateFrequency
+        criteria
+        comparator
+        value
+        createdAt
+        updatedAt
+    }
+}
