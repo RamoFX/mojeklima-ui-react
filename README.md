@@ -1,5 +1,10 @@
 # MojeKlima DMP - UI (React)
 
+## Description
+This project focuses on the development of a web application designed primarily for mobile devices. Its purpose is to provide registered users with current weather information and flexible alerts based on customizable locations, utilizing an external service for real-time weather data. Users can manage all data, including location details, alerts, and account information, with options to edit or delete as needed.
+
+The application offers features such as user registration, login, and password recovery. The visual design supports both light (day) and dark (night) themes, dynamically adapting to the system's settings to ensure a seamless user experience.
+
 ## Overview
 This project was developed as part of my high school graduation requirements. It showcases some of my skills in front-end development, utilizing modern web technologies.
 
